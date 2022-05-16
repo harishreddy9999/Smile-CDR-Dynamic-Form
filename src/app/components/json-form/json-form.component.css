@@ -1,0 +1,29 @@
+.row{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    margin: 15px;
+}
+.form-control{
+    width: 50%;
+    height: 35px;
+    padding: 0px 15px;
+}
+.btn-row{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    margin: 15px;
+}
+.btn-submit{
+    padding: 5px 12px;
+    margin: 10px 0;
+    background-color: cornflowerblue;
+    color: white;
+    border: 2px solid ghostwhite;
+    outline: none;
+    cursor: pointer;
+}
+.title-lbl{
+    color: cornflowerblue;
+}

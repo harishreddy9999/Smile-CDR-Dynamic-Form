@@ -1,0 +1,48 @@
+<p>json-form works!</p>
+<div class="container">
+    <form novalidate [formGroup]="myForm">
+        <div *ngFor="let prop of dynamicFormData">
+            <label class="title-lbl row" [attr.for]="prop.name">{{prop.label}}</label>
+            <ng-container [ngSwitch]="prop.type">
+                <ng-container *ngSwitchCase="'boolean'">
+                    <label *ngFor="let option of prop.option">
+                        <input
+                        type="radio"
+                        [name]="prop.name"
+                        [formControlName]="prop.name"
+                        [value]="option.code"
+                        class="form-control"
+                        />{{ option.value }}
+                    </label>
+                </ng-container>
+                <select
+                [formControlName]="prop.name"
+                *ngSwitchCase="'choice'"
+                class="form-control"
+                >
+                    <option *ngFor="let option of prop.option" [value]="option.valueCoding.code">
+                        {{ option.valueCoding.display }}
+                    </option>
+                </select>
+                <input
+                *ngSwitchCase="'string'"
+                class="form-control"
+                [formControlName]="prop.name"
+                [id]="prop.name"
+                [type]="prop.type"
+                />
+                <input
+                *ngSwitchCase="'date'"
+                class="form-control"
+                [formControlName]="prop.name"
+                [id]="prop.name"
+                [type]="prop.type"
+                />
+            </ng-container>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <button class="btn-submit" (click)="onSubmit()">Submit</button>
+</div>
+
